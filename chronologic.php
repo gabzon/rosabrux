@@ -29,6 +29,7 @@
     );?>
 
     <?php $categories = []; ?>
+
     <?php foreach ($expos as $expo): ?>
         <?php $cat = wp_get_post_categories($expo->ID); ?>
         <?php if (!in_array($cat[0], $categories, true)): ?>
@@ -36,6 +37,8 @@
         <?php endif; ?>
         <br>
     <?php endforeach; ?>
+
+    <?php piklist::pre($categories); ?>
 
     <?php foreach ($categories as $cat): ?>
         <?= get_category_link( $cat ); ?>
