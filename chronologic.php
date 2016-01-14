@@ -27,7 +27,7 @@
             )
         )
     );?>
-
+    TEST!
     <?php foreach ($expos as $expo): ?>
         <a href="<?php echo esc_url(get_permalink( $expo->ID )); ?>" style="text-transform:uppercase;">
             <?php $title = ''; ?>
