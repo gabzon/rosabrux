@@ -40,10 +40,10 @@
     <?php foreach ($categories as $cat): ?>
         <?php switch (get_cat_name($cat)) {
             case 'EXPOSITIONS':
-                echo '<br>';
                 break;
             case 'Non classé':
-                echo '<br>';
+                break;
+            case 'PROJECTIONS 3-8':            
                 break;
             default:?>
                 <a href="<?= get_category_link( $cat ); ?>">
@@ -51,26 +51,6 @@
                 </a>
                 <br>
             <?php } ?>
-
         <?php endforeach; ?>
     <?php endforeach; ?>
 </div>
-
-
-<?php
-$favcolor = "red";
-
-switch ($favcolor) {
-    case "red":
-    echo "Your favorite color is red!";
-    break;
-    case "blue":
-    echo "Your favorite color is blue!";
-    break;
-    case "green":
-    echo "Your favorite color is green!";
-    break;
-    default:
-    echo "Your favorite color is neither red, blue, nor green!";
-}
-?>
