@@ -31,7 +31,7 @@
     <?php foreach ($expos as $expo): ?>
         <a href="<?php echo esc_url(get_permalink( $expo->ID )); ?>" style="text-transform:uppercase;">
             <?php $title = ''; ?>
-            <?php if ($title != '') : ?>
+            <?php if (! $title !== '') : ?>
                 <?php if ($title == $expo->post_title): ?>
                     <?= $title; ?>
                     <?php $title =  $expo->post_title ?>
