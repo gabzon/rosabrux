@@ -27,9 +27,10 @@
             )
         )
     );?>
-    TEST!
+
     <?php $title = ''; ?>
     <?php foreach ($expos as $expo): ?>
+        <?php piklist::pre($expo); ?>
         <a href="<?php echo esc_url(get_permalink( $expo->ID )); ?>" style="text-transform:uppercase;">
             <?php
                 if ($title == '') {
