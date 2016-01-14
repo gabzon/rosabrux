@@ -30,7 +30,7 @@
 
     <?php $title = ''; ?>
     <?php foreach ($expos as $expo): ?>
-        <?php $cat = get_the_category(); ?>
+        <?php $cat = wp_get_post_categories($expo->ID); ?>
         <?php echo ' '; ?>
         <?php print_r($cat); ?>
         ------
