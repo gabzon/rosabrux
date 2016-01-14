@@ -40,10 +40,11 @@
     <?php //piklist::pre($categories); ?>
 
     <?php foreach ($categories as $cat): ?>
+        Cat name: <?= get_cat_name($cat) . '------'; ?>
         <?php if (get_cat_name($cat) != 'NON CLASSÉ' ): ?>
             NOT TRUE
         <?php endif; ?>
-        <?php if (get_cat_name($cat) != 'EXPOSITIONS' || get_cat_name($cat) != 'NON CLASSÉ'): ?>
+        <?php if (get_cat_name($cat) != 'EXPOSITIONS' && get_cat_name($cat) != 'NON CLASSÉ'): ?>
             <a href="<?= get_category_link( $cat ); ?>">
                 <?= get_cat_name($cat); ?>
             </a>
