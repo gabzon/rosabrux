@@ -17,13 +17,21 @@ $sage_includes = [
   'lib/assets.php',                // Scripts and stylesheets
   'lib/titles.php',                // Page titles
   'lib/extras.php',                // Custom functions
+  'controller/default.php',        // Default configuration (infinite-scroll, etc)
+  'model/taxonomy'                 // Custom taxonomy
 ];
 
 foreach ($sage_includes as $file) {
-  if (!$filepath = locate_template($file)) {
-    trigger_error(sprintf(__('Error locating %s for inclusion', 'sage'), $file), E_USER_ERROR);
-  }
+    if (!$filepath = locate_template($file)) {
+        trigger_error(sprintf(__('Error locating %s for inclusion', 'sage'), $file), E_USER_ERROR);
+    }
 
-  require_once $filepath;
+    if (is_dir($filepath)){
+        foreach (glob("$filepath/*.php") as $filename) {
+            require_once($filename);
+        }
+    }else{
+        require_once $filepath;
+    }
 }
 unset($file, $filepath);
