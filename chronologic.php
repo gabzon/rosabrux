@@ -31,12 +31,7 @@
     <?php $title = ''; ?>
     <?php foreach ($expos as $expo): ?>
         <?php $cat = wp_get_post_categories($expo->ID); ?>
-        <?php echo ' '; ?>
-        <?php print_r($cat); ?>
-        ------
-        <a href="<?php echo esc_url(get_permalink( $expo->ID )); ?>" style="text-transform:uppercase;">
-            <?= $expo->post_title; ?>
-        </a>
+        <?php echo get_cat_name( $cat[0] ); ?>
         <br>
     <?php endforeach; ?>
 <?php endforeach; ?>
