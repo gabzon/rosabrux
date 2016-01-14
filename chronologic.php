@@ -34,16 +34,18 @@
         <?php $cat = wp_get_post_categories($expo->ID); ?>
         <?php if (!in_array($cat[0], $categories, true)): ?>
             <?php array_push($categories, $cat[0]); ?>
-        <?php endif; ?>        
+        <?php endif; ?>
     <?php endforeach; ?>
 
     <?php //piklist::pre($categories); ?>
 
     <?php foreach ($categories as $cat): ?>
-        <a href="<?= get_category_link( $cat ); ?>">
-            <?= get_cat_name($cat); ?>
-        </a>
-        <br>
+        <?php if (get_cat_name($cat) !== 'EXPOSITIONS' || get_cat_name($cat) !== 'NON CLASSÉ'): ?>
+            <a href="<?= get_category_link( $cat ); ?>">
+                <?= get_cat_name($cat); ?>
+            </a>
+            <br>
+        <?php endif; ?>
     <?php endforeach; ?>
 <?php endforeach; ?>
 </div>
