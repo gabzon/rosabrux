@@ -30,7 +30,10 @@
 
     <?php $title = ''; ?>
     <?php foreach ($expos as $expo): ?>
-        <?php get_the_category ( int $id = false ) ?>
+        <?php $cat = get_the_category(); ?>
+        <?php echo ' '; ?>
+        <?php print_r($cat); ?>
+        ------
         <a href="<?php echo esc_url(get_permalink( $expo->ID )); ?>" style="text-transform:uppercase;">
             <?= $expo->post_title; ?>
         </a>
