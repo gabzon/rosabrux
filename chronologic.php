@@ -38,7 +38,7 @@
                     $title =  $expo->post_title;
                 } else {
                     if ($title !== $expo->post_title){
-                        echo $title '<br>';
+                        echo $title . '<br>';
                         $title =  $expo->post_title;
                     }
                 }
