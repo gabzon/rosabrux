@@ -35,15 +35,13 @@
         <?php if (!in_array($cat[0], $categories, true)): ?>
             <?php array_push($categories, $cat[0]); ?>
         <?php endif; ?>
-    <?php endforeach; ?>
+    <?php endforeach; ?>    
 
     <?php foreach ($categories as $cat): ?>
-        <a href="<?= get_category_link( $cat ); ?>">
-            <?= get_cat_name($cat); ?>
-        </a>
-        <br>
-        <?php if (get_cat_name($cat) != 'EXPOSITIONS'): ?>
-
+        <?php if (get_cat_name($cat) != 'EXPOSITIONS' || get_cat_name($cat) != 'Non classé'): ?>
+            <a href="<?= get_category_link( $cat ); ?>">
+                <?= get_cat_name($cat); ?>
+            </a>
             <br>
         <?php endif; ?>
     <?php endforeach; ?>
