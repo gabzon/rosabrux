@@ -38,10 +38,12 @@
         <br>
     <?php endforeach; ?>
 
-    <?php piklist::pre($categories); ?>
+    <?php //piklist::pre($categories); ?>
 
     <?php foreach ($categories as $cat): ?>
-        <?= get_category_link( $cat ); ?>
+        <a href="<?= get_category_link( $cat ); ?>">
+            <?= get_cat_name($cat); ?>
+        </a>
     <?php endforeach; ?>
 <?php endforeach; ?>
 </div>
