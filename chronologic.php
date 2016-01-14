@@ -31,13 +31,16 @@
     <?php $title = ''; ?>
     <?php foreach ($expos as $expo): ?>
         <a href="<?php echo esc_url(get_permalink( $expo->ID )); ?>" style="text-transform:uppercase;">
-            <?php if ($title !== '') : ?>
-                je suis après la comparaison
-                <?php if ($title == $expo->post_title): ?>
-                    <?= $title; ?>
-                    <?php $title =  $expo->post_title ?>
-                <?php endif; ?>
-            <?php endif; ?>
+            <?php
+                if ($title == '') {
+                    echo $expo->post_title
+                } else {
+                    if ($title !== $expo->post_title){
+                        echo $title;
+                        $title =  $expo->post_title
+                    }
+                }
+            ?>
         </a>
         <br>
     <?php endforeach; ?>
