@@ -28,11 +28,17 @@
         )
     );?>
 
-    <?php $title = ''; ?>
+    <?php $categories = []; ?>
     <?php foreach ($expos as $expo): ?>
         <?php $cat = wp_get_post_categories($expo->ID); ?>
-        <?php echo get_cat_name( $cat[0] ); ?>
+        <?php if (!in_array($cat[0], $categories, true)): ?>
+            <?php array_push($categories, $cat[0]); ?>
+        <?php endif; ?>
         <br>
+    <?php endforeach; ?>
+
+    <?php foreach ($categories as $cat): ?>
+        <?= get_category_link( $cat ); ?>
     <?php endforeach; ?>
 <?php endforeach; ?>
 </div>
