@@ -31,8 +31,8 @@
     <?php $title = ''; ?>
     <?php foreach ($expos as $expo): ?>
         <a href="<?php echo esc_url(get_permalink( $expo->ID )); ?>" style="text-transform:uppercase;">
-            je suis avant la comparaison
-            <?php if ($title !== '') : ?>                
+            <?php if ($title !== '') : ?>
+                je suis après la comparaison
                 <?php if ($title == $expo->post_title): ?>
                     <?= $title; ?>
                     <?php $title =  $expo->post_title ?>
