@@ -33,11 +33,12 @@
         <a href="<?php echo esc_url(get_permalink( $expo->ID )); ?>" style="text-transform:uppercase;">
             <?php
                 if ($title == '') {
-                    echo $expo->post_title;
+                    echo $expo->post_title . '<br>';
                     echo 'je suis dans le premier test';
+                    $title =  $expo->post_title;
                 } else {
                     if ($title !== $expo->post_title){
-                        echo $title;
+                        echo $title '<br>';
                         $title =  $expo->post_title;
                     }
                 }
