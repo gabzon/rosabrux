@@ -37,13 +37,13 @@
         <?php endif; ?>
     <?php endforeach; ?>
 
-    <?php //piklist::pre($categories); ?>
-
     <?php foreach ($categories as $cat): ?>
+        <a href="<?= get_category_link( $cat ); ?>">
+            <?= get_cat_name($cat); ?>
+        </a>
+        <br>
         <?php if (get_cat_name($cat) != 'EXPOSITIONS'): ?>
-            <a href="<?= get_category_link( $cat ); ?>">
-                <?= get_cat_name($cat); ?>
-            </a>
+
             <br>
         <?php endif; ?>
     <?php endforeach; ?>
