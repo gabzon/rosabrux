@@ -35,15 +35,42 @@
         <?php if (!in_array($cat[0], $categories, true)): ?>
             <?php array_push($categories, $cat[0]); ?>
         <?php endif; ?>
-    <?php endforeach; ?>    
+    <?php endforeach; ?>
 
     <?php foreach ($categories as $cat): ?>
-        <?php if (get_cat_name($cat) != 'EXPOSITIONS' || get_cat_name($cat) != 'Non classé'): ?>
-            <a href="<?= get_category_link( $cat ); ?>">
-                <?= get_cat_name($cat); ?>
-            </a>
-            <br>
-        <?php endif; ?>
+        <?php switch (get_cat_name($cat)) {
+            case 'EXPOSITIONS':
+                echo '<br>';
+                break;
+            case 'Non classé':
+                echo '<br>';
+                break;
+            default:?>
+                <a href="<?= get_category_link( $cat ); ?>">
+                    <?= get_cat_name($cat); ?>
+                </a>
+                <br>
+            <?php } ?>
+
+        <?php endforeach; ?>
     <?php endforeach; ?>
-<?php endforeach; ?>
 </div>
+
+
+<?php
+$favcolor = "red";
+
+switch ($favcolor) {
+    case "red":
+    echo "Your favorite color is red!";
+    break;
+    case "blue":
+    echo "Your favorite color is blue!";
+    break;
+    case "green":
+    echo "Your favorite color is green!";
+    break;
+    default:
+    echo "Your favorite color is neither red, blue, nor green!";
+}
+?>
